@@ -1,25 +1,53 @@
-<style>
-  
-  h1{
-    font-size: 42px;
-    text-decoration: bold;
-    color: red;
-  }
-.hello-all{
-  align-item: center;
-}
-  img{
-    border-radius: 5px;
-  }
-</style>
-
-<div class="hello-all">
-<h1> This is King Mozzam Area!
-</h1>
-<p>Lorem ipsum kipsum yipsum lpop popo lopi.</p>
-
-
-<img src="https://cdn.shopify.com/s/files/1/0458/0107/8941/products/Cowshed-MOTHER-To-Be-29222-p.png?v=1654969635">
-
-<button>Mozzam King!</button>
+<div class="shopify-collection">
+  {% for product in collections['mac-oc-featured'].products %}
+    <div class="product-item">
+      <img src="{{ product.featured_image.src | img_url: 'medium' }}" alt="{{ product.title }}">
+      <h2>{{ product.title }}</h2>
+      <p>{{ product.description | truncate: 100 }}</p>
+      <a href="{{ product.url }}" class="product-link">View Product</a>
+    </div>
+  {% endfor %}
 </div>
+
+<styles>
+  .shopify-collection {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.product-item {
+    width: 300px;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.product-item:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.product-item img {
+    max-width: 100%;
+    margin-bottom: 15px;
+}
+
+.product-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.product-link:hover {
+    background-color: #2980b9;
+}
+
+</styles>
