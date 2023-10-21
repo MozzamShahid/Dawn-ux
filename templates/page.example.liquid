@@ -1,14 +1,3 @@
-<div class="shopify-collection">
-  {% for product in collections['mac-oc-featured'].products %}
-    <div class="product-item">
-      <img src="{{ product.featured_image.src | img_url: 'medium' }}" alt="{{ product.title }}">
-      <h2>{{ product.title }}</h2>
-      <p>{{ product.description | truncate: 100 }}</p>
-      <a href="{{ product.url }}" class="product-link">View Product</a>
-    </div>
-  {% endfor %}
-</div>
-
 <styles>
   .shopify-collection {
     display: flex;
@@ -51,3 +40,13 @@
 }
 
 </styles>
+<div class="shopify-collection">
+  {% for product in collections['mac-oc-featured'].products %}
+    <div class="product-item">
+      <img src="{{ product.featured_image.src | img_url: 'medium' }}" alt="{{ product.title }}">
+      <h2>{{ product.title }}</h2>
+      <p>{{ product.description | truncate: 100 }}</p>
+      <a href="{{ product.url }}" class="product-link">View Product</a>
+    </div>
+  {% endfor %}
+</div>
